@@ -1,0 +1,42 @@
+{
+  "name": "grunt-google-apps-script",
+  "description": "Grunt plugin for google-apps-script",
+  "version": "0.1.0",
+  "homepage": "https://github.com/cwarden/grunt-google-apps-script",
+  "author": {
+    "name": "Christian G. Warden",
+    "email": "cwarden@xerus.org",
+    "url": "http://xn.pinkhamster.net/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cwarden/grunt-google-apps-script.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cwarden/grunt-google-apps-script/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/cwarden/grunt-google-apps-script/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.12.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
