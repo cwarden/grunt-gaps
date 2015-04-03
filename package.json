@@ -1,8 +1,8 @@
 {
-  "name": "grunt-google-apps-script",
+  "name": "grunt-gaps",
   "description": "Grunt plugin for google-apps-script",
   "version": "0.1.0",
-  "homepage": "https://github.com/cwarden/grunt-google-apps-script",
+  "homepage": "https://github.com/cwarden/grunt-gaps",
   "author": {
     "name": "Christian G. Warden",
     "email": "cwarden@xerus.org",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/cwarden/grunt-google-apps-script.git"
+    "url": "git://github.com/cwarden/grunt-gaps.git"
   },
   "bugs": {
-    "url": "https://github.com/cwarden/grunt-google-apps-script/issues"
+    "url": "https://github.com/cwarden/grunt-gaps/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/cwarden/grunt-google-apps-script/blob/master/LICENSE-MIT"
+      "url": "https://github.com/cwarden/grunt-gaps/blob/master/LICENSE-MIT"
     }
   ],
   "engines": {
@@ -29,8 +29,6 @@
   },
   "devDependencies": {
     "grunt-contrib-jshint": "^0.9.2",
-    "grunt-contrib-clean": "^0.5.0",
-    "grunt-contrib-nodeunit": "^0.3.3",
     "grunt": "~0.4.5"
   },
   "peerDependencies": {
@@ -38,5 +36,12 @@
   },
   "keywords": [
     "gruntplugin"
-  ]
+  ],
+  "dependencies": {
+    "del": "^1.1.1",
+    "fs-extra": "^0.18.0",
+    "node-google-apps-script": "git://github.com/cwarden/node-google-apps-script.git#expose-as-library",
+    "temporary": "0.0.8",
+    "underscore": "^1.8.3"
+  }
 }

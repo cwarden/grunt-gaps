@@ -1,6 +1,6 @@
-# grunt-google-apps-script
+# grunt-gaps
 
-> Grunt plugin for google-apps-script
+> Grunt plugin for node-google-apps-script
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
@@ -8,28 +8,26 @@ This plugin requires Grunt `~0.4.5`
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install grunt-google-apps-script --save-dev
+npm install grunt-gaps --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-google-apps-script');
+grunt.loadNpmTasks('grunt-gaps');
 ```
 
-## The "google_apps_script" task
+## The "gapspull" task
 
 ### Overview
-In your project's Gruntfile, add a section named `google_apps_script` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `gapspull` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  google_apps_script: {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
+  gapspull: {
+    your_project: {
+      dest: "build/project",
+      projectId: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX_XXXXXXXXXXX-XXX'
     },
   },
 });
@@ -37,53 +35,64 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.dest
 Type: `String`
-Default value: `',  '`
 
-A string value that is used to do something with whatever.
+A string with the name of the destination directory.
 
-#### options.punctuation
+#### options.projectId
 Type: `String`
 Default value: `'.'`
 
-A string value that is used to do something else with whatever else.
+A string containing the project id.
 
-### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+## The "gapspush" task
+
+### Overview
+In your project's Gruntfile, add a section named `gapspush` to the data object passed into `grunt.initConfig()`.
+
+There are two ways to use the `gapspush` task.  It can push a directory
+containing a `.manifest.json` by passing only a `src` option.  The
+`.manifest.json` file will be created automatically in the `dest` directory
+when using the `gapspull` task (or using the `gaps` CLI directly).
+
+Alternatively, if you set both the `src` option and the `projectId`, the
+project will first be fetched from Google Drive, creating the .manifest.json
+file, overwritten with the contents of the `src` directory, then pushed back up
+to Google Drive.
 
 ```js
 grunt.initConfig({
-  google_apps_script: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+  gapspush: {
+    build: {
+      src: "build/project"
+    },
+    your_project: {
+      src: "src/project",
+      projectId: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX_XXXXXXXXXXX-XXX'
     },
   },
 });
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+### Options
 
-```js
-grunt.initConfig({
-  google_apps_script: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
+#### options.src
+Type: `String`
 
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+A string with the name of the destination directory.
+
+#### options.projectId
+Type: `String`
+
+A string containing the project id.
 
 ## Release History
 _(Nothing yet)_
+
+## Credits
+
+Dan Thareja's
+[node-google-apps-script](https://github.com/danthareja/node-google-apps-script)
+does most of the work.
