@@ -27,7 +27,7 @@ grunt.initConfig({
   gapspull: {
     your_project: {
       dest: "build/project",
-      projectId: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX_XXXXXXXXXXX-XXX'
+      projectId: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX_XXXXXXXXXXX-XXX"
     },
   },
 });
@@ -70,7 +70,7 @@ grunt.initConfig({
     },
     your_project: {
       src: "src/project",
-      projectId: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX_XXXXXXXXXXX-XXX'
+      projectId: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX_XXXXXXXXXXX-XXX"
     },
   },
 });
